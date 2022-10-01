@@ -5,8 +5,6 @@ public class Calculadora {
 	// atributos
 	float a;
 	float b;
-	float res;
-//	float soma;
 	
 // construtores
 
@@ -50,11 +48,4 @@ public class Calculadora {
 		this.b = b;
 	}
 
-	public float getRes() {
-		return res;
-	}
-
-	public void setRes(float res) {
-		this.res = res;
-	}
 }
