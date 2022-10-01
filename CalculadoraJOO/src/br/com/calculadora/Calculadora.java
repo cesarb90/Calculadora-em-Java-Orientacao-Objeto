@@ -6,7 +6,8 @@ public class Calculadora {
 	float a;
 	float b;
 	float res;
-
+//	float soma;
+	
 // construtores
 
 	public Calculadora() {
@@ -14,8 +15,25 @@ public class Calculadora {
 
 	// metodos
 
+	//com retorno
+	public float soma() {
+		float soma = a + b;
+		return soma;
+	}
+	public float sub() {
+		float sub = a - b;
+		return sub;
+	}
+	public float div() {
+		float div = a / b;
+		return div;
+	}
+	public float mult() {
+		float mult = a * b;
+		return mult;
+	}
 	// getandset
-
+	
 	public float getA() {
 		return a;
 	}

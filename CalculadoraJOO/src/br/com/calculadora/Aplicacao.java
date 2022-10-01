@@ -3,58 +3,44 @@ package br.com.calculadora;
 import java.util.Scanner;
 
 public class Aplicacao {
-
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
 		Calculadora um = new Calculadora();
-		Calculadora dois = new Calculadora();
-		Calculadora res = new Calculadora();
-		// float sol = res.getRes();
-		float operacao;
-		int i;
-		int count = 0;
+		Scanner scan = new Scanner(System.in);
+		int operacao = 0;
+		String repet = "S";
+		
+		while (repet.equalsIgnoreCase("s")) {
+			
+		System.out.println("Informe um valor: ");
+		um.setA(scan.nextFloat());
+		System.out.println("Informe outro valor: ");
+		um.setB(scan.nextFloat());
+		System.out.println("Qual operação matemática você gostaria de realizar:" + "\n1- Soma" + "\n2- Subtração"
+				+ "\n3- Divisão" + "\n4- Multiplicação");
+		operacao = scan.nextInt();
 
-		System.out.println("Informe quantas vezes você quer realizar as operações: ");
-		i = scan.nextInt();
-		while (count < i) {
-			System.out.println("Informe um valor: ");
-			um.setA(scan.nextFloat());
-			System.out.println("Informe outro valor: ");
-			dois.setB(scan.nextFloat());
-			System.out.println("qual operação você deseja utilizar:	" + "\n 1- Soma" + "\n 2- Subtração"
-					+ "\n 3- Divisão" + "\n 4- Multiplicação");
-			operacao = scan.nextFloat();
-
-			if (operacao == 1) {
-				res.setRes(um.getA() + dois.getB());
-				// sol = um.getA() + dois.getB();
-				System.out.println("A soma de " + um.getA() + " e " + dois.getB() + " é igual a: " + res.getRes());
-//				System.out.printf("%nA soma de %f com %f e igual a %f", um.getA(), dois.getB(), res.getRes());
-//			System.out.println("A soma de " + um.getA() + " e " + dois.getB() + " é igual a: " + sol);
-//			System.out.printf("%nA soma de %f com %f e igual a %f", um.getA(), dois.getB(), sol);
-				System.out.printf("%n%n");
-			} else if (operacao == 2) {
-				res.setRes(um.getA() - dois.getB());
-				System.out.println("A subtração de " + um.getA() + " e " + dois.getB() + " é igual a: " + res.getRes());
-//				System.out.printf("%nA subtração de %f e %f e igual a %f", um.getA(), dois.getB(), res.getRes());
-				System.out.printf("%n%n");
-			} else if (operacao == 3) {
-				res.setRes(um.getA() / dois.getB());
-				System.out.println("A divisão de " + um.getA() + " e " + dois.getB() + " é igual a: " + res.getRes());
-//				System.out.printf("%nA divisão de %f e %f e igual a %f", um.getA(), dois.getB(), res.getRes());
-				System.out.printf("%n%n");
-			} else if (operacao == 4) {
-				res.setRes(um.getA() * dois.getB());
-				System.out.println(
-						"A multiplicação de " + um.getA() + " e " + dois.getB() + " é igual a: " + res.getRes());
-//				System.out.printf("%nA multiplicação de %f e %f e igual a %f", um.getA(), dois.getB(), res.getRes());
-				System.out.printf("%n%n");
-			} else {
-				System.err.println("A Opção que você escolheu não é valida");
-			}
-			count++;
+		if (operacao == 1) {
+//			System.out.printf("%nA soma de %f e %f e igual a %f", um.getA(), um.getB(), um.soma());
+			System.out.println("A soma de " + um.getA() + " e " + um.getB() + " é igual a: " + um.soma()+"\n");
+		} else if (operacao == 2) {
+//			System.out.printf("%nA subtração de %f e %f e igual a %f", um.getA(), um.getB(), um.sub());
+			System.out.println("A subtração de " + um.getA() + " e " + um.getB() + " é igual a: " + um.sub()+"\n");
+		} else if (operacao == 3 & um.getB() == 0) {
+			System.err.println("Não é possível dividir por 0");
+		} else if (operacao == 3) {
+//			System.out.printf("%nA divisão de %f por %f e igual a %f", um.getA(), um.getB(), um.div());
+			System.out.println("A divisão de " + um.getA() + " e " + um.getB() + " é igual a: " + um.div()+"\n");
+		} else if (operacao == 4) {
+//			System.out.printf("%nA multiplicação de %f e %f e igual a %f", um.getA(), um.getB(), um.mult());
+			System.out.println("A multiplicação de " + um.getA() + " e " + um.getB() + " é igual a: " + um.mult()+"\n");
+		} else {
+			System.err.println("Você digitou uma opção invalida\n");
+		}
+		System.out.println("Deseja fazer outra operação?"
+				+ "\nS - Sim"
+				+ "\nN - Nao");
+		repet = scan.next();
 		}
 		scan.close();
 	}
-
 }
